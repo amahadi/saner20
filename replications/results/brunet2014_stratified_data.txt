@@ -1,0 +1,73 @@
+22:34:51.551350
+1 combined NaiveBayes 0.79
+22:34:51.710314
+
+
+1 combined DecisionTree 0.85
+22:46:00.381151
+22:46:00.381257
+2 combined NaiveBayes 0.76
+22:46:00.579625
+
+
+2 combined DecisionTree 0.87
+22:55:37.722664
+22:55:37.722747
+3 combined NaiveBayes 0.73
+22:55:37.864751
+
+
+3 combined DecisionTree 0.88
+23:04:43.585922
+23:04:43.586017
+4 combined NaiveBayes 0.86
+23:04:43.762863
+
+
+4 combined DecisionTree 0.83
+23:13:20.158498
+23:13:20.158626
+5 combined NaiveBayes 0.89
+23:13:20.296632
+
+
+5 combined DecisionTree 0.85
+23:22:34.278967
+23:22:34.279264
+6 combined NaiveBayes 0.79
+23:22:34.441674
+
+
+6 combined DecisionTree 0.84
+23:33:38.795504
+23:33:38.795574
+7 combined NaiveBayes 0.75
+23:33:38.977659
+
+
+7 combined DecisionTree 0.91
+23:44:13.605466
+23:44:13.605567
+8 combined NaiveBayes 0.79
+23:44:13.774084
+
+
+8 combined DecisionTree 0.9
+23:53:56.012234
+23:53:56.012302
+9 combined NaiveBayes 0.82
+23:53:56.179937
+
+
+9 combined DecisionTree 0.91
+00:03:51.106953
+00:03:51.107022
+10 combined NaiveBayes 0.81
+00:03:51.249689
+
+
+10 combined DecisionTree 0.92
+00:13:07.506793
+
+
+mean for Decision Tree: 87.6

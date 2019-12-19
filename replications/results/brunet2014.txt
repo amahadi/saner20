@@ -1,0 +1,70 @@
+10:43:52.216951
+1 combined NaiveBayes 0.81
+10:43:52.347346
+
+
+1 combined DecisionTree 0.93
+10:49:46.536533
+10:49:46.536591
+2 combined NaiveBayes 0.87
+10:49:46.662001
+
+
+2 combined DecisionTree 0.93
+10:55:37.721263
+10:55:37.721321
+3 combined NaiveBayes 0.87
+10:55:37.847049
+
+
+3 combined DecisionTree 0.94
+11:01:20.039591
+11:01:20.039649
+4 combined NaiveBayes 0.88
+11:01:20.164365
+
+
+4 combined DecisionTree 0.93
+11:07:18.674694
+11:07:18.674749
+5 combined NaiveBayes 0.85
+11:07:18.793910
+
+
+5 combined DecisionTree 0.93
+11:12:52.648768
+11:12:52.648837
+6 combined NaiveBayes 0.87
+11:12:52.786405
+
+
+6 combined DecisionTree 0.92
+11:18:59.304525
+11:18:59.304581
+7 combined NaiveBayes 0.81
+11:18:59.426993
+
+
+7 combined DecisionTree 0.91
+11:24:28.677211
+11:24:28.677271
+8 combined NaiveBayes 0.91
+11:24:28.857021
+
+
+8 combined DecisionTree 0.98
+11:30:15.481987
+11:30:15.482041
+9 combined NaiveBayes 0.91
+11:30:15.605694
+
+
+9 combined DecisionTree 0.93
+11:36:10.368754
+11:36:10.368809
+10 combined NaiveBayes 0.835820895522388
+11:36:10.492159
+
+
+10 combined DecisionTree 0.9104477611940298
+11:42:37.061079
