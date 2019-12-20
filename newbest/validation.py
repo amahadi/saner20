@@ -36,20 +36,20 @@ class Validation(FlowSpec):
                  'apr', 'april', 'may', 'jun', 'june', 'july', 'jul', 'aug', 'august', 'sep', 'september', \
                  'oct', 'october', 'nov', 'novenber', 'dec', 'december', 'pm', 'am', '//'
         ]
-        n = 10
+        n = 2
         self.WIKI_WORDS = './files/pre_trained_word_vectors/wiki-news-300d-1M.vec'
         self.WORD_DICTIONARY = {}
         self.n_splits = n
         self.folds = np.arange(n)
-        self.next(self.read_data, foreach='datasets')
+        self.next(self.make_word_dictionary)
 
-    # @step
-    # def make_word_dictionary(self):
-    #     print('Loading word-embedding file and making dictionary...')
-    #     for line in progressbar(open(self.WIKI_WORDS)):
-    #         values = line.split()
-    #         self.WORD_DICTIONARY[values[0]] = np.array(values[1:], dtype='float32')
-    #     self.next(self.read_data, foreach='datasets')
+    @step
+    def make_word_dictionary(self):
+        print('Loading word-embedding file and making dictionary...')
+        for line in progressbar(open(self.WIKI_WORDS)):
+            values = line.split()
+            self.WORD_DICTIONARY[values[0]] = np.array(values[1:], dtype='float32')
+        self.next(self.read_data, foreach='datasets')
 
     @step
     def read_data(self):
@@ -102,6 +102,7 @@ class Validation(FlowSpec):
     @step
     def word_embed(self):
         self.word_vector = np.zeros(np.array((self.input.shape[0], 300)))
+        self.label = self.input['label']
         i = 0
         for sentence in self.input['text']:
             words = sentence.split()
@@ -113,34 +114,40 @@ class Validation(FlowSpec):
 
     @step 
     def join_word_vectors(self, inputs):
-        self.train_vector = inputs[0].word_vector
-        self.test_vector = inputs[1].word_vector
+        self.train_X = inputs[0].word_vector
+        self.train_Y = inputs[0].label
+        self.test_X = inputs[1].word_vector
+        self.test_Y = inputs[1].label
         self.next(self.oversample)
 
     @step
     def oversample(self):
         sm = SMOTE(random_state=42)
-        self.train_vector['text'], self.train_vector['label'] = sm.fit_resample(self.train_vector['text'], self.train_vector['label'])
+        self.train_X, self.train_Y = sm.fit_resample(self.train_X, self.train_Y)
         self.next(self.train)
 
     @step
     def train(self):
-        self.trained_classifier = svm.SVC().fit(self.train_vector['text'], self.train_vector['label'])
+        self.trained_classifier = svm.SVC().fit(self.train_X, self.train_Y)
         self.next(self.validate)
 
     @step
     def validate(self):
-        self.prediction = self.trained_classifier.predict(self.test_vectors)
+        predictions = self.trained_classifier.predict(self.test_X)
+        cm = confusion_matrix(self.test_Y, predictions)
+        tpr = cm[1, 1] / (cm[1, 1] + cm[1, 0])
+        tnr = cm[0, 0] / (cm[0, 0] + cm[0, 1])
+        self.balanced_accuracy = round((tpr + tnr) / 2, 4)
         self.next(self.join_predictions)
 
     @step 
     def join_predictions(self, inputs):
-        self.k_fold_predictions = [input.prediction for input in inputs]
+        self.k_fold_balanced_accuracy = [input.balanced_accuracy for input in inputs]
         self.next(self.join)
 
     @step
     def join(self, inputs):
-        self.results = [input.k_fold_predictions for input in inputs]
+        self.results = [input.k_fold_balanced_accuracy for input in inputs]
         self.next(self.end)
 
     @step
