@@ -95,9 +95,9 @@ class Validation(FlowSpec):
         end = start + chunk
         test_data = train_data[start:end]
         train_data = train_data.drop(test_data.index)
-        self.split_data = [train_data, test_data]
+        self.data = [train_data, test_data]
 
-        self.next(self.word_embed, foreach='split_data')
+        self.next(self.word_embed, foreach='data')
         
     @step
     def word_embed(self):
