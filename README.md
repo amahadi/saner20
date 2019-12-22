@@ -1,5 +1,5 @@
 # Saner 2020
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3590121.svg)](https://doi.org/10.5281/zenodo.3590121)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3590126.svg)](https://doi.org/10.5281/zenodo.3590126)
 
 ## Replication package for `Cross-Dataset Design Discussion Mining`
 
