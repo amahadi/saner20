@@ -1,4 +1,6 @@
 # Saner 2020
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3590121.svg)](https://doi.org/10.5281/zenodo.3590121)
+
 ## Replication package for `Cross-Dataset Design Discussion Mining`
 
 ### Environment
@@ -7,8 +9,9 @@
 - `pip==18.1`
 
 ### Getting Started
-- Please go to the root directory of the project
+- Please go to the root directory of the project.
 - Run `pip install -r requirements.txt`
+- For datasets, please go [here](https://doi.org/10.5281/zenodo.3590123). Download `files.zip` and extract it into the project root directory. 
 - `python <filename.py>`
 
 ### Get in Touch
