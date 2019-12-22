@@ -30,7 +30,6 @@ def structure(data_file_path):
 
 
 data = structure(brunet2014)
-data = structure(shakiba2016)
 # print(data.head())
 
 
@@ -75,8 +74,7 @@ def stratification(data, n_splits):
     return stratified_data
 
 
-WIKI_WORDS = '../files/pre_trained_word_vectors/wiki-news-300d-1M.vec'
-GLOVE_WORDS = '../files/pre_trained_word_vectors/glove.42B.300d.txt'
+WIKI_WORDS = './files/pre_trained_word_vectors/wiki-news-300d-1M.vec'
 WORD_DICTIONARY = {}
 
 
