@@ -54,8 +54,7 @@ def remove_stopwords(data):
                                                                  if word not in (stopset)]))
     return data
 
-WIKI_WORDS = '../files/pre_trained_word_vectors/wiki-news-300d-1M.vec'
-GLOVE_WORDS = '../files/pre_trained_word_vectors/glove.42B.300d.txt'
+WIKI_WORDS = './files/pre_trained_word_vectors/wiki-news-300d-1M.vec'
 WORD_DICTIONARY = {}
 
 
