@@ -3,7 +3,7 @@ astor==0.7.1
 astroid==2.3.3
 backcall==0.1.0
 beautifulsoup4==4.8.1
-bleach==3.0.2
+bleach==3.3.0
 blis==0.4.1
 boto==2.49.0
 boto3==1.10.42
